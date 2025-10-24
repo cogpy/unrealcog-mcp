@@ -31,8 +31,29 @@ The Unreal MCP integration provides comprehensive tools for controlling Unreal E
 | **Blueprint Development** | • Create new Blueprint classes with custom components<br>• Add and configure components (mesh, camera, light, etc.)<br>• Set component properties and physics settings<br>• Compile Blueprints and spawn Blueprint actors<br>• Create input mappings for player controls |
 | **Blueprint Node Graph** | • Add event nodes (BeginPlay, Tick, etc.)<br>• Create function call nodes and connect them<br>• Add variables with custom types and default values<br>• Create component and self references<br>• Find and manage nodes in the graph |
 | **Editor Control** | • Focus viewport on specific actors or locations<br>• Control viewport camera orientation and distance |
+| **OpenCog Multi-Agent Orchestration** | • Register and manage concurrent AI agent sessions<br>• Share knowledge through distributed atomspace<br>• Coordinate workflows with task delegation<br>• Enable multiple AI clients to work collaboratively<br>• Prevent conflicts through shared state awareness |
 
 All these capabilities are accessible through natural language commands via AI assistants, making it easy to automate and control Unreal Engine workflows.
+
+## 🤖 OpenCog Multi-Agent Orchestration
+
+This project includes an **OpenCog-inspired orchestration workbench** that enables multiple AI assistant clients to work together collaboratively on Unreal Engine projects. This groundbreaking feature allows:
+
+### Concurrent AI Collaboration
+Multiple AI clients (Cursor, Windsurf, Claude Desktop) can work simultaneously on the same Unreal project, coordinating their efforts through:
+
+- **Agent Registration**: Each AI client registers itself with unique capabilities
+- **Knowledge AtomSpace**: Shared knowledge base inspired by OpenCog's hypergraph database
+- **Workflow Coordination**: Task queue system for delegating and coordinating work
+- **Conflict Prevention**: Shared state awareness prevents concurrent modification conflicts
+
+### Use Cases
+- **Team-based Development**: Multiple AI specialists (blueprint expert, level designer, UI designer) collaborate on complex projects
+- **Knowledge Sharing**: Agents share best practices, completed work, and project state
+- **Task Delegation**: Distribute work based on agent capabilities and priorities
+- **Coordinated Workflows**: Execute complex multi-step operations across multiple agents
+
+See [Docs/Tools/orchestration_tools.md](Docs/Tools/orchestration_tools.md) for complete documentation and examples.
 
 ## 🧩 Components
 

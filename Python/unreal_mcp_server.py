@@ -261,7 +261,7 @@ async def server_lifespan(server: FastMCP) -> AsyncIterator[Dict[str, Any]]:
 # Initialize server
 mcp = FastMCP(
     "UnrealMCP",
-    description="Unreal Engine integration via Model Context Protocol",
+    instructions="Unreal Engine integration via Model Context Protocol",
     lifespan=server_lifespan
 )
 
@@ -271,13 +271,15 @@ from tools.blueprint_tools import register_blueprint_tools
 from tools.node_tools import register_blueprint_node_tools
 from tools.project_tools import register_project_tools
 from tools.umg_tools import register_umg_tools
+from tools.orchestration_tools import register_orchestration_tools
 
 # Register tools
 register_editor_tools(mcp)
 register_blueprint_tools(mcp)
 register_blueprint_node_tools(mcp)
 register_project_tools(mcp)
-register_umg_tools(mcp)  
+register_umg_tools(mcp)
+register_orchestration_tools(mcp)  
 
 @mcp.prompt()
 def info():
@@ -335,6 +337,24 @@ def info():
     ## Project Tools
     - `create_input_mapping(action_name, key, input_type)` - Create input mappings
     
+    ## OpenCog Multi-Agent Orchestration Tools
+    ### Agent Management
+    - `register_agent(agent_id, agent_type, capabilities)` - Register AI agent session
+    - `list_active_agents()` - List all active agent sessions
+    - `deregister_agent(agent_id)` - Deregister an agent session
+    - `get_orchestration_status()` - Get overall orchestration status
+    
+    ### Knowledge Sharing (AtomSpace)
+    - `share_knowledge(knowledge_type, knowledge_content, source_agent, metadata)` - Share knowledge in atomspace
+    - `query_knowledge(knowledge_type, source_agent, limit)` - Query shared knowledge
+    
+    ### Workflow Coordination
+    - `create_workflow_task(task_type, task_params, assigned_agent, priority)` - Create coordinated task
+    - `claim_workflow_task(agent_id, task_id)` - Claim a task for execution
+    - `complete_workflow_task(task_id, result, success)` - Mark task as completed
+    - `list_workflow_tasks(status, assigned_agent)` - List workflow tasks
+    - `clear_orchestration_state(confirm)` - Clear all orchestration state
+    
     ## Best Practices
     
     ### UMG Widget Development
@@ -369,6 +389,16 @@ def info():
     - Log important operations
     - Validate parameters
     - Clean up resources on errors
+    
+    ### Multi-Agent Orchestration
+    - Register agents at the start of work sessions
+    - Share knowledge about created actors, blueprints, and workflows
+    - Use task coordination for complex multi-step operations
+    - Query knowledge before creating duplicate assets
+    - Deregister agents when work is complete
+    - Monitor orchestration status regularly
+    - Use workflow tasks for coordinated team operations
+    - Leverage agent capabilities for task delegation
     """
 
 # Run the server
